@@ -50,6 +50,8 @@ TEXT
   
   { "full_text" : "wlp2s0: ${addr wlp2s0}", "color" : "\#ffffff"},
 
-  { "full_text" : "CDT: ${time %a, %d %b %Y %T %z}", "color" : "\#ffffff"}
+  { "full_text" : "CDT: ${time %a, %d %b %Y %T}", "color" : "\#ffffff"},
+  
+  { "full_text" : "UTC: ${tztime UTC %a, %d %b %Y %T}", "color" : "\#ffffff"}
  ],
 
