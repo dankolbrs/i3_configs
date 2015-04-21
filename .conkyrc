@@ -56,6 +56,10 @@ TEXT
 
   #dipslay tun0 IP if on VPN, otherwise display nothing 
   { "full_text" : ${if_match "${addr tun0}" == "No Address"}""${else}"VPN: ${addr tun0}"${endif}, "color" : "\#00ff00"},
+
+  #ping script, run every minute display "PING" in green good, red "PING" otherwise
+  { "full_text" : "PING", "color" : 
+	${if_match ${execpi 60 $HOME/.i3/test_ping.sh} < 100}"\#00ff00"${else}"\#ff0000"${endif}},
  
   #give IP of wireless
   { "full_text" : "wlp2s0: ${addr wlp2s0}", "color" : "\#ffffff"},
