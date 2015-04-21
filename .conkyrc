@@ -39,19 +39,25 @@ TEXT
 
  [{ "full_text" : "Home ${fs_free /home} Avail" , "color" : "{green}" },
   
-  { "full_text" : "RAM ${memperc}%" , "color" :
-    ${if_match ${memperc}<5}"\#ffffff"${else}"\#ff0000"${endif} },
+  #{ "full_text" : "RAM ${memperc}%" , "color" :
+  #  ${if_match ${memperc}<5}"\#ffffff"${else}"\#ff0000"${endif} },
   
-  { "full_text" : "CPU: ${cpu cpu0}%", "color" : "\#ffffff"},
+  { "full_text" : ${if_match ${memperc}<10}"RAM  ${memperc}%"${else}"RAM ${memperc}%"${endif}  ,
+    "color" : "\#ffffff"},
   
-  { "full_text" : ${if_match ${cpu cpu0}>8}"CPU"${else}""${endif}, "color" : "\#ffffff"},
+  #{ "full_text" : "CPU: ${cpu cpu0}%", "color" : "\#ffffff"},
+  
+  #{ "full_text" : ${if_match ${cpu cpu0}>8}"CPU"${else}""${endif}, "color" : "\#ffffff"},
+  { "full_text" : ${if_match ${cpu cpu0}<10}"CPU  ${cpu cpu0}%"${else}"CPU ${cpu cpu0}%"${endif}  ,
+    "color" : "\#ffffff"},
+  
   
   { "full_text" : "Batt: ${battery}", "color" : "\#ffffff"},
   
   { "full_text" : "wlp2s0: ${addr wlp2s0}", "color" : "\#ffffff"},
 
-  { "full_text" : "CDT: ${time %a, %d %b %Y %T}", "color" : "\#ffffff"},
+  { "full_text" : "CDT: ${time %a, %m/%d %T}", "color" : "\#ffffff"},
   
-  { "full_text" : "UTC: ${tztime UTC %a, %d %b %Y %T}", "color" : "\#ffffff"}
+  { "full_text" : "UTC: ${tztime UTC %a, %m/%d %T}", "color" : "\#ffffff"}
  ],
 
