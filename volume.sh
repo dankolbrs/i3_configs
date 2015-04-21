@@ -39,7 +39,7 @@ if [[ $1 == "down" ]]
 	new_lev=$(echo "$cur_vol - $per_change" | bc)
 fi
 
-#and check if it is to be muted. (afterthough)
+#and check if it is to be muted. (afterthought)
 if [[ $2 == "mute" ]]
 	then
 	new_lev=0
