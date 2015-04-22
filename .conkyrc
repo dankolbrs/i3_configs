@@ -41,6 +41,7 @@ TEXT
   #usage on home (always green)
   { "full_text" : "Home ${fs_free /home} Avail" , "color" : "\#00ff00" },
   
+
   #RAM usage (formated for double digits)
   { "full_text" : ${if_match ${memperc}<10}"RAM  ${memperc}%"${else}"RAM ${memperc}%"${endif}  ,
     "color" : "\#ffffff"},
@@ -48,6 +49,10 @@ TEXT
   #CPU usage (formatted for double digits)
   { "full_text" : ${if_match ${cpu cpu0}<10}"CPU  ${cpu cpu0}%"${else}"CPU ${cpu cpu0}%"${endif}  ,
     "color" : "\#ffffff"},
+  
+  #use get volume script 
+  { "full_text" : "Vol: ${execp $HOME/.i3/get_volume.sh}%", "color" : "\#ffffff"}, 
+
  
 #something is broken here in the battery if statement. To fix later 
   #Battery percentage(green >= 80%, red <=25%, yellow between 26 and 79%)
