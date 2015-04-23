@@ -59,8 +59,13 @@ TEXT
 	"color" : ${if_match ${battery_percent}<25}"\#ff0000"${else}
 	${if_match ${battery_percent} > 79}"\#00ff00"${else}"\#ffff00"${endif}${endif}},
 
-  #dipslay tun0 IP if on VPN, otherwise display nothing 
+  ##### Next two do the same thing, varies on method to connect to VPN
+  #display tun0 IP if on VPN, otherwise display nothing 
   { "full_text" : ${if_match "${addr tun0}" == "No Address"}""${else}"VPN: ${addr tun0}"${endif}, "color" : "\#00ff00"},
+  
+  #display vpn0 IP if on VPN, otherwise display nothing 
+  { "full_text" : ${if_match "${addr vpn0}" == "No Address"}""${else}"VPN: ${addr vpn0}"${endif}, "color" : "\#00ff00"},
+  #####
 
   #ping script, run every minute display "PING" in green good, red "PING" otherwise
   { "full_text" : "PING", "color" : 
