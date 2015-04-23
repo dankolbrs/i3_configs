@@ -57,7 +57,7 @@ TEXT
   #Battery percentage(green >= 80%, red <=25%, yellow between 26 and 79%)
   { "full_text" : "Batt: ${battery_short}", 
 	"color" : ${if_match ${battery_percent}<25}"\#ff0000"${else}
-	${if_match ${battery_percent} > 80}"\#00ff00"${else}"\#ffff00"${endif}${endif}},
+	${if_match ${battery_percent} > 79}"\#00ff00"${else}"\#ffff00"${endif}${endif}},
 
   #dipslay tun0 IP if on VPN, otherwise display nothing 
   { "full_text" : ${if_match "${addr tun0}" == "No Address"}""${else}"VPN: ${addr tun0}"${endif}, "color" : "\#00ff00"},
