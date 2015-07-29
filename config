@@ -178,4 +178,5 @@ bindsym $mod+r mode "resize"
 bar {
         #status_command i3status
         status_command $HOME/.i3/i3_conky
+	position top
 }
